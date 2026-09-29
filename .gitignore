@@ -1,0 +1,72 @@
+### ==========================================
+### .gitignore für euer Konsolen-Projekt
+### (Unity + Python + ESP32/PlatformIO gemischt)
+### ==========================================
+#
+# Was macht diese Datei?
+# Git verfolgt normalerweise JEDE Datei in eurem Ordner. Viele Dateien
+# will man aber NICHT hochladen, weil sie:
+#   - riesig sind (Build-Ordner, kompilierte Dateien)
+#   - automatisch neu generiert werden (Caches, temporäre Dateien)
+#   - persönliche Einstellungen sind (Editor-Konfiguration)
+#   - Geheimnisse enthalten (Passwörter, API-Keys) – sehr wichtig!
+#
+# Jede Zeile hier ist ein "Muster" für Dateien/Ordner, die Git ignorieren soll.
+# Diese Datei muss "gitignore" (mit dem Punkt davor) im Hauptordner
+# eures Repositorys liegen, damit sie wirkt.
+
+# ---------- UNITY ----------
+# Diese Ordner erzeugt Unity automatisch neu, sobald man das Projekt öffnet.
+# Sie können mehrere GB groß werden – deshalb nie einchecken.
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Uu]serSettings/
+
+# Dateien, die auf dem Computer jedes Einzelnen unterschiedlich sind
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+.vs/
+
+# Betriebssystem-eigene "Müll"-Dateien
+.DS_Store
+Thumbs.db
+
+# ---------- PYTHON ----------
+# Automatisch generierter Cache, wird bei jedem Ausführen neu erstellt
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtuelle Umgebungen (können mehrere hundert MB groß sein,
+# jeder soll sich seine eigene lokal erstellen)
+venv/
+.venv/
+env/
+
+# ---------- ESP32 / PlatformIO (Controller-Firmware) ----------
+# Build-Ausgaben und Abhängigkeiten, die PlatformIO selbst neu herunterlädt
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# ---------- ALLGEMEIN WICHTIG: GEHEIMNISSE ----------
+# NIEMALS Passwörter, API-Keys oder Zugangsdaten hochladen!
+# Speichert solche Werte stattdessen in einer .env-Datei, die hier
+# ignoriert wird, und lest sie im Code daraus ein.
+.env
+*.env
+secrets.json
+*.key
+
+# ---------- EDITOR-EINSTELLUNGEN ----------
+# Persönliche Editor-Konfiguration (z.B. Visual Studio Code)
+.vscode/
+.idea/
